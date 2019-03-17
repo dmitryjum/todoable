@@ -29,11 +29,18 @@ module Todoable
           'Authorization': @auth['token'],
           'Content-Type' => 'application/json'
         },
-        body: { list: params[:list] }.to_json
+        body: { list: params }.to_json
       )
     end
 
     def get_list(params)
+      HTTParty.get(
+        "#{HOST}/lists/#{params[:id]}",
+        headers: {
+          'Authorization': @auth['token'],
+          'Content-Type' => 'application/json'
+        }
+      )
     end
 
     def update(params)
