@@ -29,7 +29,7 @@ module Todoable
           'Authorization': @auth['token'],
           'Content-Type' => 'application/json'
         },
-        body: { list: params }.to_json
+        body: {list: parmas[:list]}.to_json
       )
     end
 
@@ -44,18 +44,55 @@ module Todoable
     end
 
     def update(params)
+      HTTParty.patch(
+        "#{HOST}/lists/#{params[:id]}",
+        headers: {
+          'Authorization': @auth['token'],
+          'Content-Type' => 'application/json'
+        },
+        body: {list: params[:list]}.to_json
+      )
     end
 
     def delete(params)
+      HTTParty.delete(
+        "#{HOST}/lists/#{params[:id]}",
+        headers: {
+          'Authorization': @auth['token'],
+          'Content-Type' => 'application/json'
+        }
+      )
     end
 
     def create_item(params)
+      HTTParty.post(
+        "#{HOST}/lists/#{params[:id]}/items",
+        headers: {
+          'Authorization': @auth['token'],
+          'Content-Type' => 'application/json'
+        },
+        body: { item: params[:item] }.to_json
+      )
     end
 
     def finish_item(params)
+      HTTParty.put(
+        "#{HOST}/lists/#{params[:id]}/items/#{params[:item_id]}/finish",
+        headers: {
+          'Authorization': @auth['token'],
+          'Content-Type' => 'application/json'
+        }
+      )
     end
 
     def delete_item(params)
+      HTTParty.delete(
+        "#{HOST}/lists/#{params[:id]}/items/#{params[:item_id]}",
+        headers: {
+          'Authorization': @auth['token'],
+          'Content-Type' => 'application/json'
+        }
+      )
     end
 
     private
