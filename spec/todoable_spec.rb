@@ -1,9 +1,13 @@
 RSpec.describe Todoable do
-  it "has a version number" do
-    expect(Todoable::VERSION).not_to be nil
-  end
+  # it "has a version number" do
+  #   expect(Todoable::VERSION).not_to be nil
+  # end
 
-  it "does something useful" do
-    expect(Todoable::TodoableAPI.some_string).to eq("Hello World")
+  # it "does something useful" do
+  #   expect(Todoable::TodoableAPI.some_string).to eq("Hello World")
+  # end
+  describe "gem authorizes itself based on username and password stored in env variables" do
+    it "successfuly authorizes a user and responds with valid token" do
+    end
   end
 end
