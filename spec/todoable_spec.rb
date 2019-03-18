@@ -1,3 +1,9 @@
+# TODO:
+# 1. Finish tests for all edge cases and potential error responses
+# 2. Configure VCR to wrap the whole test file or describe blocks to route different requests to different cassets
+# 3. Once VCR configured dry out class instantiations
+# 4. Specs that have similar behavior could be refactored with "behaves_like" method
+
 RSpec.describe Todoable::Lists do
   describe "gem authorizes itself based on username and password stored in env variables" do
     it "successfuly authorizes a user and responds with auth token" do

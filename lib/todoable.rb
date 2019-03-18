@@ -1,3 +1,7 @@
+# TODO:
+# 1 Create custom error handling class or classes and implement
+# 2 Refactor reppetetive HTTParty calls
+
 require 'todoable/version'
 require 'httparty'
 
