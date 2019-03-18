@@ -1,8 +1,6 @@
 # Todoable
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/todoable`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem wrapps api requests to Todoable API. Available actions are: index (to get all todo lists), create (to create a todo list), get_list (to get one list by id), update (to update a lists name), delete (to update a gem), create_item (to create an item in a list), finish_item(to check an item as finished in a list), delete_item( to delete an item in a list).
 
 ## Installation
 
@@ -21,8 +19,15 @@ Or install it yourself as:
     $ gem install todoable
 
 ## Usage
-
-TODO: Write usage instructions here
+* The gem isn't released to rubygems.org yet, so it'll have to be downloaded from this repository to your machine before installation.
+* In order to be able to use this gem you have to set TODOABLE_USERNAME and TODOABLE_PASSWORD environment variables.
+* Require 'todoable' in your ruby file
+* Initialize Todoable::Lists class with no arguments, just make sure that your password and username are set as env variables.
+```
+Todoable::Lists.new
+```
+* Call methods on your instance. #index doesn't require any arguments, every other method get method requires a hash of arguments. If you're requesting a list, pass a k/v pair {id: 'id'}, if you're requesting and items list that belong to a list, pass both ids as {id: 'id', item_id: 'item_id'}, if you're creating or updating one of them, pass additional k/v pairs as {list: {name: 'name'}} or {item: {item: name}}.
+* If Auth Token expires, the gem will reauthorize itself automatically.
 
 ## Development
 
@@ -32,7 +37,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/todoable.
+Bug reports and pull requests are welcome on GitHub at https://github.com/dmitryjum/todoable.
 
 ## License
 
