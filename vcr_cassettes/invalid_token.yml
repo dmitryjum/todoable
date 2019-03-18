@@ -1,0 +1,81 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://todoable.teachable.tech/api/authenticate
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic ZG1pdHJ5anVtQGdtYWlsLmNvbTp0b2RvYWJsZQ==
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 18 Mar 2019 02:18:31 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '88'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d4fe6534ae8bceb62ec2934f5f3a8862d1552875510; expires=Tue, 17-Mar-20
+        02:18:30 GMT; path=/; domain=.teachable.tech; HttpOnly
+      X-Content-Type-Options:
+      - nosniff
+      X-Request-Id:
+      - 5246CEA9CF074BBA9EABA66306F449D0
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 4b93b7665903cce0-EWR
+    body:
+      encoding: UTF-8
+      string: '{"token":"cb24fcba-2c3b-41d3-8e4c-4180faac80cb","expires_at":"2019-03-18T02:38:31.448Z"}'
+    http_version: 
+  recorded_at: Mon, 18 Mar 2019 02:18:31 GMT
+- request:
+    method: get
+    uri: http://todoable.teachable.tech/api/lists
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - some_token
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Mon, 18 Mar 2019 02:18:31 GMT
+      Content-Length:
+      - '12'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d95a7206b51e3c096b154ba4b2f2222541552875511; expires=Tue, 17-Mar-20
+        02:18:31 GMT; path=/; domain=.teachable.tech; HttpOnly
+      X-Content-Type-Options:
+      - nosniff
+      X-Request-Id:
+      - FBE8AC73453845189CD86B3CA86D833A
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 4b93b76b6f12ccc0-EWR
+    body:
+      encoding: UTF-8
+      string: Unauthorized
+    http_version: 
+  recorded_at: Mon, 18 Mar 2019 02:18:31 GMT
+recorded_with: VCR 4.0.0

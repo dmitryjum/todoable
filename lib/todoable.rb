@@ -14,7 +14,7 @@ module Todoable
       res = validate_token do
         HTTParty.get(
           "#{HOST}/lists",
-          authorized_headers
+          headers: authorized_headers
         )
       end
       parse_response(res)
@@ -24,8 +24,8 @@ module Todoable
       res = validate_token do
         HTTParty.post(
           "#{HOST}/lists",
-          authorized_headers,
-          body: {list: parmas[:list]}.to_json
+          headers: authorized_headers,
+          body: {list: params[:list]}.to_json
         )
       end
       parse_response(res)
@@ -35,7 +35,7 @@ module Todoable
       res = validate_token do
         HTTParty.get(
           "#{HOST}/lists/#{params[:id]}",
-          authorized_headers
+          headers: authorized_headers
         )
       end
       parse_response(res)
@@ -45,7 +45,7 @@ module Todoable
       res = validate_token do
         HTTParty.patch(
           "#{HOST}/lists/#{params[:id]}",
-          authorized_headers,
+          headers: authorized_headers,
           body: {list: params[:list]}.to_json
         )
       end
@@ -56,7 +56,7 @@ module Todoable
       res = validate_token do
         HTTParty.delete(
           "#{HOST}/lists/#{params[:id]}",
-          authorized_headers
+          headers: authorized_headers
         )
       end
       parse_response(res)
@@ -66,7 +66,7 @@ module Todoable
       res = validate_token do
         HTTParty.post(
           "#{HOST}/lists/#{params[:id]}/items",
-          authorized_headers,
+          headers: authorized_headers,
           body: { item: params[:item] }.to_json
         )
       end
@@ -77,7 +77,7 @@ module Todoable
       res = validate_token do
         HTTParty.put(
           "#{HOST}/lists/#{params[:id]}/items/#{params[:item_id]}/finish",
-          authorized_headers
+          headers: authorized_headers
         )
       end
       parse_response(res)
@@ -87,7 +87,7 @@ module Todoable
       res = validate_token do
         HTTParty.delete(
           "#{HOST}/lists/#{params[:id]}/items/#{params[:item_id]}",
-          authorized_headers
+          headers: authorized_headers
         )
       end
       parse_response(res)
@@ -106,10 +106,8 @@ module Todoable
 
     def authorized_headers
       {
-        headers: {
-          'Authorization': auth['token'],
-          'Content-Type' => 'application/json'
-        }
+        'Authorization': auth['token'],
+        'Content-Type' => 'application/json'
       }
     end
 

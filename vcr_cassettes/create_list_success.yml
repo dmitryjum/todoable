@@ -1,0 +1,85 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://todoable.teachable.tech/api/authenticate
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic ZG1pdHJ5anVtQGdtYWlsLmNvbTp0b2RvYWJsZQ==
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 18 Mar 2019 02:27:59 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '88'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d7a762a6cfb0a6938f79b7590572eb2ed1552876078; expires=Tue, 17-Mar-20
+        02:27:58 GMT; path=/; domain=.teachable.tech; HttpOnly
+      X-Content-Type-Options:
+      - nosniff
+      X-Request-Id:
+      - C2A34ADA3FDA4C97B84074E573452D09
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 4b93c5439ed7c5c6-EWR
+    body:
+      encoding: UTF-8
+      string: '{"token":"090c3eaf-b10c-4086-adcd-e60459c239c6","expires_at":"2019-03-18T02:47:59.343Z"}'
+    http_version: 
+  recorded_at: Mon, 18 Mar 2019 02:27:59 GMT
+- request:
+    method: post
+    uri: http://todoable.teachable.tech/api/lists
+    body:
+      encoding: UTF-8
+      string: '{"list":{"name":"Third Test List"}}'
+    headers:
+      Authorization:
+      - '090c3eaf-b10c-4086-adcd-e60459c239c6'
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Mon, 18 Mar 2019 02:27:59 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '156'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d75539520dbeeef5efa572b271c93ba611552876079; expires=Tue, 17-Mar-20
+        02:27:59 GMT; path=/; domain=.teachable.tech; HttpOnly
+      Location:
+      - http://todoable.teachable.tech/api/lists/e8259f6b-def2-4a46-bf2c-ac4e3b56e826
+      X-Content-Type-Options:
+      - nosniff
+      X-Request-Id:
+      - F45725B5FA22453793A9D0F85017CA53
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 4b93c548ca5dccc8-EWR
+    body:
+      encoding: UTF-8
+      string: '{"name":"Third Test List","src":"http://todoable.teachable.tech/api/lists/e8259f6b-def2-4a46-bf2c-ac4e3b56e826","id":"e8259f6b-def2-4a46-bf2c-ac4e3b56e826"}'
+    http_version: 
+  recorded_at: Mon, 18 Mar 2019 02:27:59 GMT
+recorded_with: VCR 4.0.0
