@@ -3,6 +3,9 @@
 # 2. Configure VCR to wrap the whole test file or describe blocks to route different requests to different cassets
 # 3. Once VCR configured dry out class instantiations
 # 4. Specs that have similar behavior could be refactored with "behaves_like" method
+# 5. If I had more time I wouldn't use VCR, because it's harder to test errors and had experience with
+# unpredictability of that gem at previous work. I'd use any other mocking framework and stub http requests, or 
+# write fake api, that would reduce amount of data to transfer as well, as appose to cassetes and time to run the test
 
 RSpec.describe Todoable::Lists do
   describe "gem authorizes itself based on username and password stored in env variables" do
