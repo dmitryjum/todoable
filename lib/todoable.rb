@@ -1,6 +1,8 @@
 # TODO:
 # 1 Create custom error handling class or classes and implement
 # 2 Refactor reppetetive HTTParty calls
+# 3 Create before and after hooks similar to Rails for token_validation and 
+# response parsing
 
 require 'todoable/version'
 require 'httparty'
