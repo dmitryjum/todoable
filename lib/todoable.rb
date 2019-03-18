@@ -7,8 +7,6 @@ module Todoable
   class Lists
     attr_accessor :auth
     def initialize
-      @username = ENV['TODOABLE_USERNAME']
-      @password = ENV['TODOABLE_PASSWORD']
       authorize
     end
 
@@ -100,9 +98,10 @@ module Todoable
     def authorize
       @auth = HTTParty.post(
         "#{HOST}/authenticate",
-        basic_auth:{username: @username, password: @password},
+        basic_auth:{username: ENV['TODOABLE_USERNAME'], password: ENV['TODOABLE_PASSWORD']},
         headers: {'Content-Type' => 'application/json'}
       )
+      raise "#{@auth.msg}! Username or password must be wrong" if @auth.code == 401
     end
 
     def authorized_headers
