@@ -1,13 +1,17 @@
-RSpec.describe Todoable do
-  # it "has a version number" do
-  #   expect(Todoable::VERSION).not_to be nil
-  # end
-
-  # it "does something useful" do
-  #   expect(Todoable::TodoableAPI.some_string).to eq("Hello World")
-  # end
+RSpec.describe Todoable::Lists do
   describe "gem authorizes itself based on username and password stored in env variables" do
-    it "successfuly authorizes a user and responds with valid token" do
+    it "successfuly authorizes a user and responds with auth token" do
+      VCR.use_cassette('auth_success') do
+        lists = Todoable::Lists.new
+        expect(lists.auth['token'].class).to be String
+      end
     end
-  end
+
+    it "raises error if password or username are incorrect" do
+      VCR.use_cassette('auth_failure') do
+        ENV['TODOABLE_PASSWORD'] = "somepassword"
+        expect{Todoable::Lists.new}.to raise_error(RuntimeError)
+      end
+    end
+  end 
 end
